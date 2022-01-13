@@ -1,0 +1,14 @@
+<div class="new_offers">
+      <%= simple_form_for(@offer) do |f| %>
+        <%= f.input :offer_category, collection: ['Rent', 'Sell'], label: "Do you want to sell or to rent?"%>
+        <%= f.input :category, collection: ['Tent', 'Camping Material', 'Clothing', 'Utensils'], label: "What kind of material?" %>
+        <%= f.input :name, placeholder: "Mega-tent 4 pers." %>
+        <%= f.input :price, hint: "Price in euros" %>
+        <% if @offer.offer_category == 'Rent' %>
+        <%# still have to use JS to implement %>
+          <%= f.input :start_date %>
+          <%= f.input :end_date %>
+        <% end %>
+        <%= f.submit %>
+      <% end %>
+</div>

@@ -3,4 +3,8 @@ class PagesController < ApplicationController
 
   def home
   end
+
+  def offer_category
+    @offers = Offer.all
+  end
 end

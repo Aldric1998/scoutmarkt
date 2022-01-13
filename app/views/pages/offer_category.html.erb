@@ -1,0 +1,12 @@
+<h1>In which category are you interested?</h1>
+<div class="cards">
+  <% @offers.each do |offer|%>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+    <% if offer.offer_category == "Sell" %>
+      <%= link_to offer.offer_category, offers_path, class: "nav-link" %>
+    <% else %>
+      <%= link_to offer.offer_category, offers_path, class: "nav-link" %>
+    </div>
+    <% end %>
+  <%end%>
+</div>
