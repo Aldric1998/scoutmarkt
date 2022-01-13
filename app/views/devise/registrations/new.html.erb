@@ -4,6 +4,9 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
+    <%= f.input :first_name, required: true, autofocus: true, placeholder: "Aldric"%>
+    <%= f.input :last_name, required: true, autofocus: true, placeholder: "De Gryse"%>
+    <%= f.input :company_name, autofocus: true, placeholder: "Monsters Inc."%>
     <%= f.input :email,
                 required: true,
                 autofocus: true,
