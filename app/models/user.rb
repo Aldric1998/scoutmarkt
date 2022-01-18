@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :offers
   has_many :demands
+  #manually
+  has_many :rents
 end

@@ -2,24 +2,16 @@
   <div class="homefirst_container row justify-content-center">
     <div class="col-12 col-lg-6">
       <h1>Scoutoplace</h1>
-      <p>rent, buy, sell or loan every possible scouting material you want</p>
+      <p>rent, buy and sell every possible scouting material you want</p>
       <div class="actions_container">
         <div class="icons_container">
           <div class="icon_1">
             <i class="fas fa-shopping-cart iconized"></i>
-            <p>Buy</p>
+            <%= link_to "Sell or rent out any of your items!", sale_rent_path %>
           </div>
           <div class="icon_1">
             <i class="fas fa-hand-holding-usd iconized"></i>
-            <p>Sell</p>
-          </div>
-          <div class="icon_1">
-            <i class="fas fa-piggy-bank iconized"></i>
-            <p>Loan</p>
-          </div>
-          <div class="icon_1">
-            <i class="fas fa-wallet iconized"></i>
-            <p>Rent</p>
+            <%= link_to "Buy or rent any items you need!", offer_category_path %>
           </div>
         </div>
       </div>

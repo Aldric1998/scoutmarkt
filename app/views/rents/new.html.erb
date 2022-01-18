@@ -1,10 +1,12 @@
 <div class="new_offers">
-      <%= simple_form_for(@offer) do |f| %>
-        <%= f.input :offer_category, collection: ['Buy'], label: "Do you want to put your item for sale or for rent?"%>
+      <%= simple_form_for(@rent) do |f| %>
+        <%= f.input :offer_category, collection: ['Rent'], label: "Do you want to put your item for sale or for rent?"%>
         <%= f.input :category, collection: ['Tent', 'Camping Material', 'Clothing', 'Utensils'], label: "What kind of material?" %>
         <%= f.input :name, placeholder: "Mega-tent 4 pers." %>
         <%= f.input :description, placeholder: "Tent for up to 4 persons" %>
         <%= f.input :price, hint: "Price in euros" %>
+        <%= f.input :start_date %>
+        <%= f.input :end_date %>
         <%= f.submit %>
       <% end %>
 </div>
