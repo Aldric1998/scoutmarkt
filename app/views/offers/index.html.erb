@@ -1,10 +1,22 @@
 <h1>In which item are you interested?</h1>
 <div class="cards">
   <% @offers.each do |offer|%>
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-      <%= link_to offer.name, offer_path(offer), class: "nav-link" %>
-      <%= offer.category %>
-      <%= offer.description%>
-      <%= offer.price %>
+    <%# <% if offer.picture.attached? %>
+    <% if offer.picture.attached? %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @offer.picture.key, height: 300, crop: :fill %>')">
+        <%= link_to offer.name, offer_path(offer), class: "nav-link" %>
+        <%= offer.category %>
+        <%= offer.description%>
+        <%= offer.price %>
+      </div>
+    <% else%>
+      <div class="card-category">
+        <%= link_to offer.name, offer_path(offer), class: "nav-link" %>
+        <%= offer.category %>
+        <%= offer.description%>
+        <%= offer.price %>
+      </div>
+    <%# <%end%>
+    <% end %>
   <%end%>
 </div>

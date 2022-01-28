@@ -4,6 +4,7 @@
         <%= f.input :category, collection: ['Tent', 'Camping Material', 'Clothing', 'Utensils'], label: "What kind of material?" %>
         <%= f.input :name, placeholder: "Mega-tent 4 pers." %>
         <%= f.input :description, placeholder: "Tent for up to 4 persons" %>
+        <%= f.input :picture, as: :file %>
         <%= f.input :price, hint: "Price in euros" %>
         <%= f.input :start_date %>
         <%= f.input :end_date %>
