@@ -1,9 +1,9 @@
 <h1>In which category are you interested?</h1>
-<div class="cards">
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-      <%= link_to "Sell", new_offer_path, class: "nav-link" %>
+<div class="sale_rent_container">
+    <div class="card-category sell_image">
+      <strong><%= link_to "Sell", new_offer_path, class: "nav-link", id:"sale_rent_color" %></strong>
     </div>
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-      <%= link_to "Rent", new_rent_path, class: "nav-link" %>
+    <div class="card-category rent_image">
+      <strong><%= link_to "Rent", new_rent_path, class: "nav-link", id:"sale_rent_color" %></strong>
     </div>
 </div>

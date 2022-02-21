@@ -11,23 +11,23 @@
     -moz-background-size:cover;
     -o-background-size:cover;
     z-index: -1;
-  color: beige;
+  color: #FFEBFF;
   padding: 25px 25px;
 }
 
 .actions_container {
   border-radius: 5px;
-  box-shadow: 0px 0px 0px 1px #ccc;
+  box-shadow: 0px 0px 0px 1px #FFEBFF;
   margin-top: 85%;
 }
 .icons_container :hover {
-  color: #ccc;
+  color: #FFEBFF;
   opacity: 0.7;
 }
 
 .icons_container {
   opacity: 1 !important;
-  color: whitesmoke;
+  color: #FFEBFF;
   padding: 10px 10px;
   display: flex;
   justify-content: space-evenly;
