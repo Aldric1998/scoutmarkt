@@ -1,13 +1,17 @@
 <h1>In which item are you interested?</h1>
 <div class="cards">
   <% @rents.each do |rent|%>
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+    <div class="card-category offer-cards">
       <%= link_to rent.name, rent_path(rent), class: "nav-link" %>
-      <%= rent.category %>
-      <%= rent.description %>
-      <%= rent.price %>
+      <i class="fa-solid fa-signs-post"></i><%= rent.category %>
+      <p>What's this product about?</p><%= rent.description %>
+      <hr>
+      <div>
+        <button type="button" class="btn btn-light placement"> <%= rent.price %><i class="fa-solid fa-euro-sign"></i> </button>
+      </div>
       <%= rent.start_date %>
       <%= rent.end_date %>
+      <%= link_to "Interested? Go to the product page to learn more about it", rent_path(rent), class: "nav-link ", id: "color-black" %>
     </div>
   <% end %>
 </div>

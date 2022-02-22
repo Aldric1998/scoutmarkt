@@ -1,11 +1,16 @@
 <h1>In which item are you interested?</h1>
 <div class="cards">
   <% @offers.each do |offer|%>
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+    <div class="card-category offer-cards">
       <%= link_to offer.name, offer_path(offer), class: "nav-link" %>
-      <%= offer.category %>
+      <i class="fa-solid fa-signs-post"></i> <%= offer.category %>
+      <p>What's this product about?</p>
       <%= offer.description%>
-      <%= offer.price %>
+      <hr>
+      <div>
+        <button type="button" class="btn btn-light placement"> <%= offer.price %><i class="fa-solid fa-euro-sign"></i> </button>
+      </div>
+      <%= link_to "Interested? Go to the product page to learn more about it", offer_path(offer), class: "nav-link ", id: "color-black" %>
     </div>
   <%end%>
 </div>
