@@ -1,6 +1,13 @@
 class RentsController < ApplicationController
   def index
     @rents = Rent.all
+    @markers = @rents.geocoded.map do |rent|
+      {
+        lat: rent.latitude,
+        lng: rent.longitude,
+        infoWindow: { content: render_to_string(partial: "/rents/map_box", locals: { rent: rent }) }
+      }
+    end
   end
 
   def new

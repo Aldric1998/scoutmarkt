@@ -2,16 +2,23 @@
 <div class="cards">
   <% @rents.each do |rent|%>
     <div class="card-category offer-cards">
-      <%= link_to rent.name, rent_path(rent), class: "nav-link" %>
-      <i class="fa-solid fa-signs-post"></i><%= rent.category %>
-      <p>What's this product about?</p><%= rent.description %>
-      <hr>
       <div>
         <button type="button" class="btn btn-light placement"> <%= rent.price %><i class="fa-solid fa-euro-sign"></i> </button>
       </div>
+      <%= link_to rent.name, rent_path(rent), class: "nav-link" %>
+      <p><i class="fa-solid fa-signs-post">  </i><%= rent.category %></p>
+      <p>What's this product about?</p><%= rent.description %>
+      <hr>
+      <p><strong>From:</strong>
       <%= rent.start_date %>
-      <%= rent.end_date %>
+      <strong>Until:</strong>
+      <%= rent.end_date %></p>
       <%= link_to "Interested? Go to the product page to learn more about it", rent_path(rent), class: "nav-link ", id: "color-black" %>
     </div>
   <% end %>
+  <div style="width: 100%; height: 600px;"
+    data-controller="mapbox"
+    data-mapbox-markers-value="<%= @markers.to_json %>"
+    data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
 </div>
