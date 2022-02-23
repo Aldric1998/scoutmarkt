@@ -13,9 +13,9 @@
       <%= link_to "Interested? Go to the product page to learn more about it", offer_path(offer), class: "nav-link ", id: "color-black" %>
     </div>
   <%end%>
-  <div style="width: 100%; height: 600px;"
-    data-controller="mapbox"
-    data-mapbox-markers-value="<%= @markers.to_json %>"
-    data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  <div id="map"
+     style="width: 35%; height: 600px; position: sticky; top: 65px; margin-top: 10px; background-color: #E3E0CF; border-radius: 5px; margin-right: 15px"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
 </div>
