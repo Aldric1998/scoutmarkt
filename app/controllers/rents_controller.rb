@@ -5,7 +5,7 @@ class RentsController < ApplicationController
       {
         lat: rent.latitude,
         lng: rent.longitude,
-        info_window: { content: render_to_string(partial: "rents/map_info_window", locals: { rent: rent }) }
+        info_window: render_to_string(partial: "rents/info_window", locals: { rent: rent })
       }
     end
   end
