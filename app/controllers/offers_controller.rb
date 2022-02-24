@@ -5,7 +5,7 @@ class OffersController < ApplicationController
       {
         lat: offer.latitude,
         lng: offer.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { offer: offer }),
+        info_window: { content: render_to_string(partial: "offers/map_info_window", locals: { offer: offer }) }
       }
     end
   end
@@ -28,6 +28,6 @@ class OffersController < ApplicationController
   private
 
   def offer_params
-    params.require(:offer).permit(:price, :description, :name, :offer_category, :category, :start_date, :end_date, :localisation)
+    params.require(:offer).permit(:price, :description, :name, :offer_category, :category, :address, :start_date, :end_date)
   end
 end

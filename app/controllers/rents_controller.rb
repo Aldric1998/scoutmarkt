@@ -5,7 +5,7 @@ class RentsController < ApplicationController
       {
         lat: rent.latitude,
         lng: rent.longitude,
-        infoWindow: { content: render_to_string(partial: "/rents/map_box", locals: { rent: rent }) }
+        info_window: { content: render_to_string(partial: "rents/map_info_window", locals: { rent: rent }) }
       }
     end
   end
@@ -28,6 +28,6 @@ class RentsController < ApplicationController
   private
 
   def rent_params
-    params.require(:rent).permit(:price, :description, :name, :offer_category, :category, :start_date, :end_date, :localisation)
+    params.require(:rent).permit(:price, :description, :name, :offer_category, :category, :start_date, :end_date, :address)
   end
 end

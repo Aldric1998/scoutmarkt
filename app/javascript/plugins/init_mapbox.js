@@ -2,7 +2,6 @@ import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
 const initMapbox = () => {
-  document.getElementById("map").innerHTML = "";
   const mapElement = document.getElementById('map');
   const fitMapToMarkers = (map, markers) => {
     const bounds = new mapboxgl.LngLatBounds();
@@ -25,9 +24,14 @@ const initMapbox = () => {
         .addTo(map);
     });
     fitMapToMarkers(map, markers);
-  }
 
-
-};
-
+    // setInterval(  () => { 
+    //   map.resize();
+    //   const bounds = new mapboxgl.LngLatBounds();
+    //   markers.forEach(marker => bounds.extend([marker.lng, marker.lat]));
+    //   map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 });
+    // } 
+    // , 1000);
+  };
+}
 export { initMapbox };
