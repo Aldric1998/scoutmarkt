@@ -8,6 +8,7 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "flatpickr/dist/themes/airbnb";
+@import "mapbox-gl/dist/mapbox-gl";
 
 // Your CSS partials
 @import "components/index";
@@ -16,6 +17,7 @@
 @import "pages/offer_category";
 @import "offers/index";
 @import "offers/show";
+@import "offers/new";
 @import "pages/sale_rent";
 
 html,body {

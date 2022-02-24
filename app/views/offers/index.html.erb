@@ -1,16 +1,23 @@
 <h1>In which item are you interested?</h1>
-<div class="cards">
-  <% @offers.each do |offer|%>
-    <div class="card-category offer-cards">
-      <%= link_to offer.name, offer_path(offer), class: "nav-link" %>
-      <i class="fa-solid fa-signs-post"></i> <%= offer.category %>
-      <p>What's this product about?</p>
-      <%= offer.description%>
-      <hr>
-      <div>
-        <button type="button" class="btn btn-light placement"> <%= offer.price %><i class="fa-solid fa-euro-sign"></i> </button>
+<div class='separate'>
+  <div class="cards">
+    <% @offers.each do |offer|%>
+      <div class="card-category offer-cards">
+        <div>
+          <button type="button" class="btn btn-light placement"> <%= offer.price %><i class="fa-solid fa-euro-sign"></i> </button>
+        </div>
+        <%= link_to offer.name, offer_path(offer), class: "nav-link" %>
+        <i class="fa-solid fa-signs-post"></i> <%= offer.category %>
+        <p>What's this product about?</p>
+        <%= offer.description%>
+        <hr>
+        <%= link_to "Interested? Go to the product page to learn more about it", offer_path(offer), class: "nav-link ", id: "color-black" %>
       </div>
-      <%= link_to "Interested? Go to the product page to learn more about it", offer_path(offer), class: "nav-link ", id: "color-black" %>
-    </div>
-  <%end%>
+    <%end%>
+  </div>
+  <div id="map"
+      style="width: 50%; height: 100vh; position: sticky; top:0; background-color: #8AA2A9; border-radius: 5px; margin-right: 15px"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
 </div>
