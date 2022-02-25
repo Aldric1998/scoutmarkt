@@ -1,6 +1,17 @@
 class RentsController < ApplicationController
   def index
-    @rents = Rent.all
+    # @rents= policy_scope(Rent)
+    if params[:query].present?
+      sql_query = " \
+        rents.name @@ :query \
+        OR rents.description @@ :query \
+
+      "
+      @rents = Rent.joins(:user).where(sql_query, query: "%#{params[:query]}%")
+    else
+      @rents = Rent.all
+    end
+
     @markers = @rents.geocoded.map do |rent|
       {
         lat: rent.latitude,
@@ -23,6 +34,12 @@ class RentsController < ApplicationController
 
   def show
     @rent = Rent.find(params[:id])
+  end
+
+  def destroy
+    @rent = Rent.find(params[:id])
+    @rent.destroy
+    redirect_to rents_path
   end
 
   private

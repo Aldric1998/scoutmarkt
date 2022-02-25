@@ -1,6 +1,15 @@
 class OffersController < ApplicationController
   def index
-    @offers = Offer.all
+    # @offers= policy_scope(Offer)
+    if params[:query].present?
+      sql_query = " \
+        offers.name @@ :query \
+        OR offers.description @@ :query \
+      "
+      @offers = Offer.joins(:user).where(sql_query, query: "%#{params[:query]}%")
+    else
+      @offers = Offer.all
+    end
     @markers = @offers.geocoded.map do |offer|
       {
         lat: offer.latitude,
@@ -23,6 +32,12 @@ class OffersController < ApplicationController
 
   def show
     @offer = Offer.find(params[:id])
+  end
+
+  def destroy
+    @offer = Offer.find(params[:id])
+    @offer.destroy
+    redirect_to offers_path
   end
 
   private

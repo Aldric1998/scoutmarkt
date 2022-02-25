@@ -7,4 +7,5 @@
   <%= @rent.price %>
   <%= @rent.start_date %>
   <%= @rent.end_date %>
+  <%= link_to "Delete", rent_path(@rent), method: "delete", data: { confirm: "Are you sure?" }%>
 </div>

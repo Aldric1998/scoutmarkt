@@ -7,4 +7,5 @@
   <%= @offer.price %>
   <%= @offer.start_date %>
   <%= @offer.end_date %>
+  <%= link_to "Delete", offer_path(@offer), method: "delete", data: { confirm: "Are you sure?" }%>
 </div>

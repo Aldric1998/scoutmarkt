@@ -1,4 +1,18 @@
 <h1>In which item are you interested?</h1>
+<div class="flexbar">
+    <div class="searchbar">
+      <%= form_tag rents_path, method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "What are you searching for?"
+      %>
+    </div>
+    <div>
+      <%= submit_tag "Search", class: "btn btn-search" %>
+    </div>
+  <% end %>
+</div>
 <div class='separate'>
   <div class="cards">
     <% @rents.each do |rent|%>
