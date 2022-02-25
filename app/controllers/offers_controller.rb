@@ -32,6 +32,12 @@ class OffersController < ApplicationController
 
   def show
     @offer = Offer.find(params[:id])
+    @markers = @offer.geocode
+    @markers = [{
+        lat: @offer.latitude,
+        lng: @offer.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { offer: @offer }),
+      }]
   end
 
   def destroy

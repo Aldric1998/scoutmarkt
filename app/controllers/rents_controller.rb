@@ -34,6 +34,12 @@ class RentsController < ApplicationController
 
   def show
     @rent = Rent.find(params[:id])
+    @markers = @rent.geocode
+    @markers = [{
+        lat: @rent.latitude,
+        lng: @rent.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { rent: @rent }),
+      }]
   end
 
   def destroy
